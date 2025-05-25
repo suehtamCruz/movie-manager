@@ -1,40 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Gerenciador de Filmes
 
-## Getting Started
+Uma aplicação web para gerenciar sua coleção de filmes. Esta aplicação permite aos usuários adicionar, visualizar e excluir filmes com avaliações e descrições.
 
-First, run the development server:
+## Tecnologias Utilizadas
 
+- **Next.js**: v15.3.2
+- **React**: v18.2.0
+- **TypeScript**: v5.0.0
+- **React Modal**: v3.16.1
+- **React Toastify**: v9.1.3
+- **Font Awesome**: v6.4.0
+
+## Como Começar
+
+### Pré-requisitos
+
+- Node.js (v18 ou superior)
+- npm (v9 ou superior)
+
+### Instalação
+
+1. Clone o repositório
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/suehtamCruz/movie-manager.git
+cd movie-manager
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Instale as dependências
+```bash
+npm install
+```
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+3. Inicie o servidor de desenvolvimento
+```bash
+npm run dev
+```
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+A aplicação estará disponível em http://localhost:4200
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+## Servidor Backend
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Esta aplicação requer um servidor backend rodando em http://localhost:3000. Certifique-se de que o servidor backend esteja em execução antes de usar esta aplicação.
 
-## Learn More
+## Credenciais de Login Padrão
 
-To learn more about Next.js, take a look at the following resources:
+- **Usuário**: Admin
+- **Senha**: admin
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+## Funcionalidades
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Autenticação de usuário (login/logout)
+- Visualização da lista de filmes
+- Adição de novos filmes com nome, descrição e avaliação
+- Exclusão de filmes
+- Design responsivo
 
-## Deploy on Vercel
+## Estrutura do Projeto
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+src/
+├── components/     # Componentes de UI reutilizáveis
+├── pages/          # Páginas do Next.js
+├── services/       # Classes de serviço para API
+└── styles/         # Módulos CSS
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+## Endpoints da API
+
+- `POST /auth/login` - Autenticação de usuário
+- `GET /movie` - Buscar todos os filmes
+- `POST /movie` - Adicionar um novo filme
+- `DELETE /movie/:id` - Excluir um filme pelo ID
+
+## Licença
+
+MIT
