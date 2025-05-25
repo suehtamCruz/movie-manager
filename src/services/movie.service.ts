@@ -61,4 +61,28 @@ export class MovieService {
       throw error;
     }
   }
+
+  async deleteMovie(id: number): Promise<Response> {
+    try {
+      const token = localStorage.getItem("access_token");
+      const headers = {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      };
+
+      const response = await fetch(`http://localhost:3000/movie/${id}`, {
+        headers,
+        method: "DELETE",
+      });
+
+      if (!response.ok) {
+        toast.error("Erro ao deletar filme");
+      }
+      return response;
+    } catch (error) {
+      toast.error("Erro ao deletar filme");
+      console.error("Error:", error);
+      throw error;
+    }
+  }
 }

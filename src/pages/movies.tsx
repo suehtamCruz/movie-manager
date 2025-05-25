@@ -1,4 +1,4 @@
-import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+import { faCircleXmark, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import Modal from "react-modal";
@@ -72,6 +72,15 @@ export default function Movies() {
     });
   };
 
+  const handleDeleteMovie = (id: number) => {
+    movieService.deleteMovie(id).then(() => {
+      toast.success("Filme deletado com sucesso!", {
+        autoClose: 2000,
+      });
+      fetchData();
+    });
+  };
+
   return (
     <>
       <section className={styles["movie-container"]}>
@@ -89,12 +98,18 @@ export default function Movies() {
           ) : (
             movies.map((movie: MovieModel) => (
               <div key={movie.Id} className={styles["movie"]}>
+                <FontAwesomeIcon
+                  icon={faTrashCan}
+                  onClick={() => handleDeleteMovie(movie.Id)}
+                  size="sm"
+                  style={{ cursor: "pointer", position: "absolute", top: 10, right: 10 }}
+                />
                 <h2 className={styles.title}>{movie.Name}</h2>
                 <p style={{ textAlign: "center", fontSize: "14px" }}>
                   {movie.Description}
                 </p>
                 <p style={{ textAlign: "center", fontSize: "14px" }}>
-                  {Math.ceil(movie.Rate / 10)}
+                  {Math.ceil(movie.Rate / 10)} / 10
                 </p>
               </div>
             ))
@@ -107,7 +122,7 @@ export default function Movies() {
         onAfterClose={() => {
           setMovieName("");
           setMovieDescription("");
-          setMovieRate(undefined); 
+          setMovieRate(undefined);
         }}
         style={{
           overlay: {

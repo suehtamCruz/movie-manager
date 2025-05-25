@@ -45,6 +45,7 @@
   max-width: 300px;
   min-width: 250px;
   padding: 12px;
+  position: relative;
 }
 
 @media (max-width: 468px) {
