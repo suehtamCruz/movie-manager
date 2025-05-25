@@ -197,6 +197,7 @@ export default function Movies() {
             padding: "8px",
             backgroundColor: "#000",
             color: "white",
+            cursor: "pointer",
             border: "none",
             borderRadius: "8px",
           }}
