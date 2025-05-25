@@ -2,6 +2,8 @@ import styles from "./header.module.css";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { toast } from "react-toastify";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
 export default function Header() {
   const router = useRouter();
@@ -32,9 +34,12 @@ export default function Header() {
         >
           Filmes
         </Link>
-        <button onClick={handleLogout} className={styles.button}>
-          Sair
-        </button>
+
+        <FontAwesomeIcon
+          icon={faRightFromBracket}
+          onClick={handleLogout}
+          className={styles.button}
+        /> 
       </div>
     </header>
   );

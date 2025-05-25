@@ -4,8 +4,9 @@
   display: flex;
   height: 30px;
   justify-content: center;
-  padding: 16px;
+  padding: 16px 0;
   width: 100%;
+  position: relative;
 }
 
 .menu {
@@ -22,4 +23,7 @@
   color: black;
   cursor: pointer;
   font-size: 16px;
+  position: absolute;
+  right: 20px;
+  top: 25px;
 }
